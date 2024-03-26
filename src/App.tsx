@@ -1,13 +1,25 @@
 import Leaderboard from './pages/Leaderboard'
 import Playground from './pages/Playground'
-import Welcome from './pages/Welcome'
+import Home from './pages/Home'
+import { useRoutes } from 'react-router-dom'
 
 export default function App() {
-  return (
-    <>
-      <Welcome />
-      <Playground />
-      <Leaderboard />
-    </>
-  )
+  const routes = [
+    {
+      path: '/',
+      element: <Home />
+    },
+    {
+      path: '/play',
+      element: <Playground />
+    },
+    {
+      path: '/leaderboard',
+      element: <Leaderboard />
+    }
+  ]
+
+  const elements = useRoutes(routes)
+
+  return elements
 }
