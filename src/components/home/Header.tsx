@@ -1,5 +1,12 @@
+import { Link } from 'react-router-dom'
+import { CrownIcon } from '../icons'
+
 export function Header() {
   return (
-    <header className='flex items-center justify-center w-full h-[25vh]'></header>
+    <header className='w-full h-[10vh]'>
+      <Link to='/leaderboard'>
+        <CrownIcon />
+      </Link>
+    </header>
   )
 }
