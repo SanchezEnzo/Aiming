@@ -1,18 +1,12 @@
 import { motion, spring } from 'framer-motion'
 // import { useLanguages } from '../../hooks/useLanguages'
 
-export function Toggle({
-  firstParam,
-  secondParam
-}: {
-  firstParam: string
-  secondParam: string
-}) {
+export function Toggle({ left, right }: { left: string; right: string }) {
   // const { language, handleLanguages } = useLanguages()
 
   return (
     <div className='animation flex items-center justify-between text-white '>
-      <span>{firstParam}</span>
+      <span>{left}</span>
       <div
         // onClick={handleLanguages}
         // data-language={language}
@@ -24,7 +18,7 @@ export function Toggle({
           className='h-[25px] w-[25px] rounded-full bg-white'
         ></motion.div>
       </div>
-      <span>{secondParam}</span>
+      <span>{right}</span>
     </div>
   )
 }

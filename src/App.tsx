@@ -1,5 +1,5 @@
 import Leaderboard from './pages/Leaderboard'
-import Playground from './pages/Playground'
+import Playground from './pages/Game'
 import Home from './pages/Home'
 import { useRoutes } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ export default function App() {
       element: <Home />
     },
     {
-      path: '/play',
+      path: '/game',
       element: <Playground />
     },
     {

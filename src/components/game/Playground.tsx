@@ -1,4 +1,4 @@
-export default function Playground() {
+export function Playground() {
   return (
     <div>
       <h1>Playground</h1>

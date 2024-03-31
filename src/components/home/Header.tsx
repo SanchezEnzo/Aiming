@@ -9,7 +9,7 @@ export function Header() {
         <CrownIcon />
       </Link>
       <div className='fixed top-6 left-8 w-[104px]'>
-        <Toggle firstParam={'EN'} secondParam={'ES'} />
+        <Toggle left={'EN'} right={'ES'} />
       </div>
     </header>
   )
