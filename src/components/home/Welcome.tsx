@@ -2,7 +2,7 @@ import { Settings } from './Settings'
 
 export function Welcome() {
   return (
-    <main className='h-[65%] flex flex-col items-center'>
+    <main className='flex flex-col items-center'>
       <h1 className='animation tracking-[3px] text-[7rem]  font-[Work Sans, sans-serif] font-bold  '>
         Aiming
       </h1>
