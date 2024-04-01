@@ -35,7 +35,7 @@ export function SettingsIcon() {
 export function CrownIcon() {
   return (
     <svg
-      className='fixed text-[#ebebeb] right-[5vh] top-[2.5vh] cursor-pointer z-40 animation hover:text-white'
+      className='fixed text-[#ebebeb] right-[5vh] top-[1vh] cursor-pointer z-40 animation hover:text-white'
       width='70'
       height='70'
       viewBox='0 0 24 24'
@@ -52,12 +52,12 @@ export function CrownIcon() {
   )
 }
 
-export function Return() {
+export function ReturnIcon() {
   return (
     <svg
-      className='animation text-[#ebebeb] font-bold absolute top-[3vh] left-[3vh] icon-animation hover:text-white'
-      width='70'
-      height='70'
+      className='animation text-[#ebebeb] font-bold fixed top-0 left-[2.5vh] icon-animation hover:text-white'
+      width='80'
+      height='80'
       viewBox='0 0 24 24'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'

@@ -1,6 +1,6 @@
 export default function Leaderboard() {
   return (
-    <div>
+    <div className='text-[#ebebeb]'>
       <h1>Leaderboard</h1>
     </div>
   )

@@ -32,10 +32,7 @@ export function Settings() {
       </div>
 
       <div className='animation flex flex-col db-[transparent] items-center'>
-        <label
-          htmlFor={difficultyId}
-          className='animation text-[#ebebeb]  font-bold'
-        >
+        <label htmlFor={difficultyId} className='animation font-bold'>
           {/* {language === 'English' ? 'Difficulty' : 'Dificultad'} */}
           Dificultad
         </label>

@@ -1,8 +1,3 @@
 export function Playground() {
-  return (
-    <div>
-      <h1>Playground</h1>
-      <button onClick={() => console.log('button clicked')}>Click me</button>
-    </div>
-  )
+  return <section className='relative h-4/5 w-[90%]'></section>
 }
