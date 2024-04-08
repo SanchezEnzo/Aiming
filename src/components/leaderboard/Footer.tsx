@@ -1,7 +1,20 @@
+import { CardConfirm } from './CardConfirm'
+
 export function Footer() {
   return (
-    <div className='footer flex justify-center items-center w-full h-12 bg-[#333333] text-[#ebebeb]'>
-      <p>© 2021</p>
-    </div>
+    <footer>
+      <button
+        className='absolute bottom-[4vh] cursor-pointer mt-2.5 flex justify-center w-[250px] border-solid border font-bold py-[5px] rounded-[10px] bg-[#6436c7] hover:text-white'
+        // onClick={handleConfirmClear}
+      >
+        {/* {language === 'English' ? 'Clear board' : 'Limpiar tabla'} */}
+        Limpiar tabla
+      </button>
+      {false && (
+        <div className='fixed bottom-0 top-0 left-0 right-0 bg-[#783CFF]/75 blur-sm z-20 '>
+          <CardConfirm />
+        </div>
+      )}
+    </footer>
   )
 }
