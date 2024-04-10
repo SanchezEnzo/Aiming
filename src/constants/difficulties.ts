@@ -1,4 +1,4 @@
-import { Difficulties } from '../service/interfaces'
+import { Difficulties } from '../service/types'
 
 export const DIFFICULTIES: Difficulties = {
   EASY: 'Easy',

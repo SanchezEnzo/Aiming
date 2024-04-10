@@ -2,9 +2,9 @@ import { CardConfirm } from './CardConfirm'
 
 export function Footer() {
   return (
-    <footer>
+    <footer className='fixed bottom-[4vh]'>
       <button
-        className='absolute bottom-[4vh] cursor-pointer mt-2.5 flex justify-center w-[250px] border-solid border font-bold py-[5px] rounded-[10px] bg-[#6436c7] hover:text-white'
+        className='cursor-pointer mt-2.5 flex justify-center w-[250px] border-solid border font-bold py-[5px] rounded-[10px] bg-[#6436c7] hover:text-white'
         // onClick={handleConfirmClear}
       >
         {/* {language === 'English' ? 'Clear board' : 'Limpiar tabla'} */}

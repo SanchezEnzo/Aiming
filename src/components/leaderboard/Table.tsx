@@ -2,7 +2,7 @@ import { DIFFICULTIES } from '../../constants/difficulties'
 
 export function Table() {
   return (
-    <table className='w-[810px]'>
+    <table className='w-[810px] animation'>
       <thead>
         <tr className='flex justify-around text-[1.2rem]'>
           <th className='block w-[100px]'>
