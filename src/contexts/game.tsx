@@ -1,7 +1,6 @@
 import { createContext, useContext, useReducer } from 'react'
 import { ActionsTypesGame, GameTypes } from '../service/types'
-
-export const GameContext = createContext<any>(null)
+import { STATES_GAME } from '../constants/statesGames'
 
 export const ACTIONS_TYPES_GAME: ActionsTypesGame = {
   CHANGE_INITIAL: 'initial',
@@ -15,20 +14,34 @@ type GameContextProps = {
   children: React.ReactNode
 }
 
-interface GameReducerPayload {
-  type: string
-  payload: Partial<GameTypes> // Make payload partial to allow updating only specific properties
-}
-
 interface StateType {
   status: GameTypes
+}
+
+interface GameReducerPayload {
+  type: GameTypes
+  payload: Partial<GameTypes> // Make payload partial to allow updating only specific properties
 }
 
 const gameInitialState: StateType = {
   status: ACTIONS_TYPES_GAME.CHANGE_INITIAL
 }
 
-const gameReducer = (state: StateType, action: GameReducerPayload) => {
+interface GameContextType {
+  state: StateType
+  changeInitial: (action: StateType) => void
+  changePlaying: (action: StateType) => void
+  changeCounting: (action: StateType) => void
+  changeStopped: (action: StateType) => void
+  changeFinished: (action: StateType) => void
+}
+
+export const GameContext = createContext<any>({} as GameContextType)
+
+const gameReducer = (
+  state: StateType,
+  action: GameReducerPayload
+): StateType => {
   const { type: actionType, payload: actionPayload } = action
   switch (actionType) {
     case ACTIONS_TYPES_GAME.CHANGE_INITIAL:
