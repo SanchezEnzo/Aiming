@@ -1,6 +1,10 @@
-import { useState } from 'react'
-import { GameTypes } from '../service/types'
+import { useContext } from 'react'
+import { GameContext } from '../contexts/game'
 
-function useGame() {
-  const [stateGame, setStateGame] = useState<GameTypes>('initial')
+export function useGame() {
+  const context = useContext(GameContext)
+
+  if (!context) throw new Error('useGame must to be within GameProvider')
+
+  return context
 }

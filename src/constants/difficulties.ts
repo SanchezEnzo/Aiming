@@ -1,6 +1,4 @@
-import { Difficulties } from '../service/types'
-
-export const DIFFICULTIES: Difficulties = {
+export const DIFFICULTIES = {
   EASY: 'Easy',
   NORMAL: 'Normal',
   HARD: 'Hard'
