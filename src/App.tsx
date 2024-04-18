@@ -23,3 +23,5 @@ export default function App() {
 
   return elements
 }
+
+// Todo: to change gameContext param logic

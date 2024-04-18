@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ReturnIcon } from '../icons'
+import { ReturnIcon } from '../Icons'
 
 export function Header() {
   return (
