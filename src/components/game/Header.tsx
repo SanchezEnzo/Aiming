@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom'
 import { CrownIcon, ReturnIcon } from '../Icons'
 import { useTime } from '../../hooks/useTime'
+import { useScore } from '../../hooks/useScore'
 
 export function Header() {
   const { timeToShow } = useTime()
+  const { score } = useScore()
 
   return (
     <header className='flex justify-around items-center w-2/4 h-[10%]  tracking-[2px] text-[1.5rem] font-bold'>
       <div className='flex items-center'>
         {/* <span>{language === 'English' ? 'Score' : 'Puntaje'}: </span>{' '} */}
-        <span>Puntaje: </span> <span className='block p-2.5 w-12'>{0}</span>
+        <span>Puntaje: </span> <span className='block p-2.5 w-12'>{score}</span>
       </div>
       <div className='flex items-center'>
         {/* <span>{language === 'English' ? 'Time' : 'Tiempo'}: </span> */}

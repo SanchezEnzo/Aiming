@@ -9,7 +9,7 @@ export const ACTIONS_TYPES_GAME: ActionsTypesGame = {
   CHANGE_FINISHED: 'finished'
 }
 
-type GameContextProps = {
+type GameProviderProps = {
   children: React.ReactNode
 }
 
@@ -55,7 +55,7 @@ const gameReducer = (
   }
 }
 
-export function GameProvider({ children }: GameContextProps) {
+export function GameProvider({ children }: GameProviderProps) {
   const [state, dispatch] = useReducer(gameReducer, gameInitialState)
 
   const changeInitial = (action: Partial<GameTypes>) =>
