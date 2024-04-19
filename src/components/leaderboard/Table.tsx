@@ -1,6 +1,20 @@
 import { DIFFICULTIES } from '../../constants/difficulties'
+import { LeaderBoardType } from '../../contexts/leaderBoard'
+import { useLeaderBoard } from '../../hooks/useLeaderBoard'
 
 export function Table() {
+  const { leaderBoardEasy, leaderBoardNormal, leaderBoardHard } =
+    useLeaderBoard()
+  const sortedLeaderBoardEasy = leaderBoardEasy
+    .sort((a: { score: number }, b: { score: number }) => b.score - a.score)
+    .slice(0, 10)
+  const sortedLeaderBoardNormal = leaderBoardNormal
+    .sort((a: { score: number }, b: { score: number }) => b.score - a.score)
+    .slice(0, 10)
+  const sortedLeaderBoardHard = leaderBoardHard
+    .sort((a: { score: number }, b: { score: number }) => b.score - a.score)
+    .slice(0, 10)
+
   return (
     <table className='w-[810px] animation'>
       <thead>
@@ -25,8 +39,8 @@ export function Table() {
         </tr>
       </thead>
       <tbody>
-        {/* {difficulties === DIFFICULTIES.EASY &&
-          sortedLeaderBoardEasy.map((player, num) => (
+        {difficulties === DIFFICULTIES.EASY &&
+          sortedLeaderBoardEasy.map((player: LeaderBoardType, num: number) => (
             <tr className='flex justify-around mt-[0.5vh]' key={player.id}>
               <td className='text-center block w-[270px]'>{num + 1}.</td>
               <td className='text-center block w-[270px]'>
@@ -36,7 +50,19 @@ export function Table() {
             </tr>
           ))}
         {difficulties === DIFFICULTIES.NORMAL &&
-          sortedLeaderBoardNormal.map((player, num) => (
+          sortedLeaderBoardNormal.map(
+            (player: LeaderBoardType, num: number) => (
+              <tr className='flex justify-around mt-[0.5vh]' key={player.id}>
+                <td className='text-center block w-[270px]'>{num + 1}.</td>
+                <td className='text-center block w-[270px]'>
+                  {player.name ? player.name : 'no name'}
+                </td>
+                <td className='text-center block w-[270px]'>{player.score}</td>
+              </tr>
+            )
+          )}
+        {difficulties === DIFFICULTIES.HARD &&
+          sortedLeaderBoardHard.map((player: LeaderBoardType, num: number) => (
             <tr className='flex justify-around mt-[0.5vh]' key={player.id}>
               <td className='text-center block w-[270px]'>{num + 1}.</td>
               <td className='text-center block w-[270px]'>
@@ -45,16 +71,6 @@ export function Table() {
               <td className='text-center block w-[270px]'>{player.score}</td>
             </tr>
           ))}
-        {difficulties === DIFFICULTIES.HARD &&
-          sortedLeaderBoardHard.map((player, num) => (
-            <tr className='flex justify-around mt-[0.5vh]' key={player.id}>
-              <td className='text-center block w-[270px]'>{num + 1}.</td>
-              <td className='text-center block w-[270px]'>
-                {player.name ? player.name : 'no name'}
-              </td>
-              <td className='text-center block w-[270px]'>{player.score}</td>
-            </tr>
-          ))} */}
       </tbody>
     </table>
   )
