@@ -24,4 +24,4 @@ export default function App() {
   return elements
 }
 
-// Todo: to change gameContext param logic
+// Todo: to change contexts param logic

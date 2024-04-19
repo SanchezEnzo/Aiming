@@ -4,11 +4,7 @@ import { useScore } from './useScore'
 import { useSettings } from './useSettings'
 import { DIFFICULTIES } from '../constants/difficulties'
 import { STATES_GAME } from '../constants/statesGames'
-
-interface Position {
-  positionX: string
-  positionY: string
-}
+import { Position } from '../service/types'
 
 export function usePosition() {
   const { state } = useGame()

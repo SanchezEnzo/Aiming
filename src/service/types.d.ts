@@ -12,3 +12,8 @@ export interface ActionsTypesGame {
   CHANGE_COUNTING: GameTypes
   CHANGE_FINISHED: GameTypes
 }
+
+export interface Position {
+  positionX: string
+  positionY: string
+}

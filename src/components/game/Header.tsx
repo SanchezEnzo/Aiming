@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { CrownIcon, ReturnIcon } from '../Icons'
+import { useTime } from '../../hooks/useTime'
 
 export function Header() {
+  const { timeToShow } = useTime()
+
   return (
     <header className='flex justify-around items-center w-2/4 h-[10%]  tracking-[2px] text-[1.5rem] font-bold'>
       <div className='flex items-center'>
@@ -10,7 +13,7 @@ export function Header() {
       </div>
       <div className='flex items-center'>
         {/* <span>{language === 'English' ? 'Time' : 'Tiempo'}: </span> */}
-        <span>Tiempo: </span>
+        <span>Tiempo: {timeToShow}</span>
         <span className='block p-2.5 w-12'>{10}</span>
       </div>
       <section className='absolute w-full'>

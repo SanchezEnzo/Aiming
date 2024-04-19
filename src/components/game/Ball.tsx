@@ -1,7 +1,13 @@
-import { STATES_GAME } from '../../constants/statesGames'
+import { Position } from '../../service/types'
 import { BallIcon } from '../Icons'
 
-export function Ball({ handleClick, position }) {
+export function Ball({
+  handleClick,
+  position
+}: {
+  handleClick: () => void
+  position: Position
+}) {
   return (
     <figure
       onClick={handleClick}
