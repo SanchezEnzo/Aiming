@@ -1,4 +1,4 @@
-import { Position } from '../../service/types'
+import { Position } from '../../@types/types'
 import { BallIcon } from '../Icons'
 
 export function Ball({

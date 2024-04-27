@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from 'react'
-import { ActionsTypesGame, GameTypes } from '../service/types'
+import { ActionsTypesGame, GameTypes } from '../@types/types'
 
 export const ACTIONS_TYPES_GAME: ActionsTypesGame = {
   CHANGE_INITIAL: 'initial',

@@ -4,7 +4,7 @@ import { useScore } from './useScore'
 import { useSettings } from './useSettings'
 import { DIFFICULTIES } from '../constants/difficulties'
 import { STATES_GAME } from '../constants/statesGames'
-import { Position } from '../service/types'
+import { Position } from '../@types/types'
 
 export function usePosition() {
   const { state } = useGame()
