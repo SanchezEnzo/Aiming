@@ -17,3 +17,7 @@ export interface Position {
   positionX: string
   positionY: string
 }
+
+export type ProviderProps = {
+  children: React.ReactNode
+}

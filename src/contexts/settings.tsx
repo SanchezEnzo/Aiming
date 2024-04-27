@@ -1,9 +1,9 @@
-import { createContext } from 'react'
+import { ReactNode, createContext } from 'react'
 import { useSettingsReducer } from '../hooks/useSettingsReducer'
 
 export const SettingsContext = createContext()
 
-export function SettingsProvider({ children }) {
+export function SettingsProvider({ children }: { children: ReactNode }) {
   const { settings, handleChangeName, handleChangeSettings } =
     useSettingsReducer()
 
