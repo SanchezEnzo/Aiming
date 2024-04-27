@@ -1,5 +1,5 @@
 import { Position } from '../../@types/global'
-import { BallIcon } from '../Icons'
+import { BallIcon } from '../icons/BallIIcon'
 
 export function Ball({
   handleClick,

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { CrownIcon } from '../Icons'
+import { CrownIcon } from '../icons/BallIIcon'
 import { Toggle } from './Toggle'
 
 export function Header() {

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { CrownIcon, ReturnIcon } from '../Icons'
+import { CrownIcon, ReturnIcon } from '../icons/BallIIcon'
 import { useTime } from '../../hooks/useTime'
 import { useScore } from '../../hooks/useScore'
 
