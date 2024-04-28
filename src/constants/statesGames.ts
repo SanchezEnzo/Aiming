@@ -1,7 +1,7 @@
 export const STATES_GAME = {
-  INITIAL: 'initial',
-  PLAYING: 'playing',
-  COUNTING: 'counting',
-  STOPPED: 'stopped',
-  FINISHED: 'finished'
+  INITIAL: 'INITIAL',
+  PLAYING: 'PLAYING',
+  COUNTING: 'COUNTING',
+  STOPPED: 'STOPPED',
+  FINISHED: 'FINISHED'
 }

@@ -1,5 +1,6 @@
-import { PropsWithChildren, createContext } from 'react'
+import { createContext } from 'react'
 import { useSettingsReducer } from '../hooks/useSettingsReducer'
+import { ProviderProps } from '../@types/global'
 
 export interface Settings {
   name: string
@@ -31,7 +32,7 @@ export const SettingsContext = createContext<SettingsContextProps>(
   InitialValueSettingsContext
 )
 
-export function SettingsProvider({ children }: PropsWithChildren) {
+export function SettingsProvider({ children }: ProviderProps) {
   const { settings, handleChangeName, handleChangeSettings } =
     useSettingsReducer()
 

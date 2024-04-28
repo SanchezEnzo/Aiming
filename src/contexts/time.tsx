@@ -1,13 +1,20 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, Dispatch, SetStateAction } from 'react'
+import { ProviderProps } from '../@types/global'
 
-export const TimeContext = createContext<any>({})
-
-interface TimeProviderProp {
-  children: React.ReactNode
+interface TimeContextProps {
+  time: number
+  setTime: Dispatch<SetStateAction<number>>
 }
 
-export function TimeProvider({ children }: TimeProviderProp) {
-  const [time, setTime] = useState(0)
+const initialValueTimeContext = {
+  time: 0,
+  setTime: (newNumber: number) => {}
+}
+
+export const TimeContext = createContext(initialValueTimeContext)
+
+export function TimeProvider({ children }: ProviderProps) {
+  const [time, setTime] = useState<number>(0)
 
   return (
     <TimeContext.Provider value={{ time, setTime }}>

@@ -14,7 +14,7 @@ interface StateType {
   status: GameTypes
 }
 
-interface PayloadProp {
+export interface PayloadProp {
   payload: keyof typeof STATES_GAME
 }
 
