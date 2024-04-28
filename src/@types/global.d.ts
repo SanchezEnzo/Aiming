@@ -21,3 +21,5 @@ export interface Position {
 export type ProviderProps = {
   children: React.ReactNode
 }
+
+export type Difficulties = 'easy' | 'normal' | 'hard'

@@ -1,17 +1,35 @@
 import { DIFFICULTIES } from '../constants/difficulties'
-import { ACTION_TYPES } from '../constants/actionTypes'
+import { Settings } from '../contexts/settings'
 
-export const initialSettings = {
+export const initialSettings: Settings = {
   name: '',
-  difficulty: DIFFICULTIES.EASY
+  difficulty: 'easy'
 }
 
-export const settingsReducer = (settings, action) => {
+const enum ACTION_TYPES_SETTINGS {
+  CHANGE_SETTINGS = 'changeSettings',
+  CHANGE_NAME = 'changeName'
+}
+
+type SettingsReducerActions =
+  | {
+      type: 'changeName'
+      payload: string
+    }
+  | {
+      type: 'changeSettings'
+      payload: keyof typeof DIFFICULTIES
+    }
+
+export const settingsReducer = (
+  settings: Settings,
+  action: SettingsReducerActions
+) => {
   const { type: actionType, payload: actionPayload } = action
   switch (actionType) {
-    case ACTION_TYPES.CHANGE_SETTINGS:
+    case ACTION_TYPES_SETTINGS.CHANGE_SETTINGS:
       return { ...settings, difficulty: actionPayload }
-    case ACTION_TYPES.CHANGE_NAME:
+    case ACTION_TYPES_SETTINGS.CHANGE_NAME:
       return { ...settings, name: actionPayload }
   }
   return settings

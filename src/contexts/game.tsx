@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from 'react'
 import { GameTypes, ProviderProps } from '../@types/global'
+import { STATES_GAME } from '../constants/statesGames'
 
 export const enum ACTIONS_TYPES_GAME {
   CHANGE_INITIAL = 'initial',
@@ -14,7 +15,7 @@ interface StateType {
 }
 
 interface PayloadProp {
-  payload: Partial<GameTypes>
+  payload: keyof typeof STATES_GAME
 }
 
 interface GameReducerPayload {

@@ -10,7 +10,7 @@ export function Footer() {
     <footer>
       {state.status === STATES_GAME.INITIAL && (
         <button
-          onClick={() => changePlaying({ status: STATES_GAME.PLAYING })}
+          onClick={() => changePlaying(STATES_GAME.PLAYING)}
           className='bg-transparent border-none cursor-pointer text-[1.5rem] mb-[2vh]  tracking-[2px] font-bold z-20 hover:text-white'
         >
           Start
