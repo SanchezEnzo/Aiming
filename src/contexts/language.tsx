@@ -1,12 +1,27 @@
 import { useState, createContext } from 'react'
+import { ProviderProps } from '../@types/global'
 
-export const LanguageContext = createContext()
+type Language = 'English' | 'Spanish'
 
-export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState('English')
+interface LanguageContextType {
+  language: Language
+  handleLanguages: () => void
+}
+
+const initialLanguageContextValue: LanguageContextType = {
+  language: 'Spanish',
+  handleLanguages: () => {}
+}
+
+export const LanguageContext = createContext<LanguageContextType>(
+  initialLanguageContextValue
+)
+
+export function LanguageProvider({ children }: ProviderProps) {
+  const [language, setLanguage] = useState<Language>('English')
 
   const handleLanguages = () => {
-    const newLanguage = language === 'English' ? 'Spanish' : 'English'
+    const newLanguage: Language = language === 'English' ? 'Spanish' : 'English'
     setLanguage(newLanguage)
   }
 
