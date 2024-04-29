@@ -2,33 +2,17 @@ import { createContext, useContext, useReducer } from 'react'
 import { GameTypes, ProviderProps } from '../@types/global'
 import { STATES_GAME } from '../constants/statesGames'
 
-export const enum ACTIONS_TYPES_GAME {
-  CHANGE_INITIAL = 'initial',
-  CHANGE_PLAYING = 'playing',
-  CHANGE_STOPPED = 'stopped',
-  CHANGE_COUNTING = 'counting',
-  CHANGE_FINISHED = 'finished'
-}
-
-interface StateType {
-  status: GameTypes
-}
-
 export interface PayloadProp {
-  payload: keyof typeof STATES_GAME
+  payload: GameTypes
 }
 
 interface GameReducerPayload {
   type: GameTypes
-  payload: PayloadProp // Make payload partial to allow updating only specific properties
-}
-
-const gameInitialState: StateType = {
-  status: ACTIONS_TYPES_GAME.CHANGE_INITIAL
+  payload: PayloadProp
 }
 
 interface GameContextType {
-  state: StateType
+  state: GameTypes
   changeInitial: (action: PayloadProp) => void
   changePlaying: (action: PayloadProp) => void
   changeCounting: (action: PayloadProp) => void
@@ -37,7 +21,7 @@ interface GameContextType {
 }
 
 const initialValueGameContext: GameContextType = {
-  state: gameInitialState,
+  state: 'initial',
   changeInitial: () => {},
   changePlaying: () => {},
   changeCounting: () => {},
@@ -50,49 +34,64 @@ export const GameContext = createContext<GameContextType>(
 )
 
 const gameReducer = (
-  state: StateType,
+  state: GameTypes,
   action: GameReducerPayload
-): StateType => {
-  const { type: actionType, payload: actionPayload } = action
+): GameTypes => {
+  const { type: actionType } = action
   switch (actionType) {
-    case ACTIONS_TYPES_GAME.CHANGE_INITIAL:
-    case ACTIONS_TYPES_GAME.CHANGE_PLAYING:
-    case ACTIONS_TYPES_GAME.CHANGE_STOPPED:
-    case ACTIONS_TYPES_GAME.CHANGE_COUNTING:
-    case ACTIONS_TYPES_GAME.CHANGE_FINISHED: {
-      return { ...state, ...actionPayload } // Update only the changed properties
+    case STATES_GAME.INITIAL: {
+      const newState = STATES_GAME.INITIAL
+      return newState
+    }
+    case STATES_GAME.PLAYING: {
+      const newState = STATES_GAME.PLAYING
+      return newState
+    }
+    case STATES_GAME.STOPPED: {
+      const newState = STATES_GAME.STOPPED
+      return newState
+    }
+    case STATES_GAME.COUNTING: {
+      const newState = STATES_GAME.COUNTING
+      return newState
+    }
+    case STATES_GAME.FINISHED: {
+      const newState = STATES_GAME.FINISHED
+      return newState
     }
     default:
       return state
   }
 }
 
+const gameInitialState = STATES_GAME.INITIAL
+
 export function GameProvider({ children }: ProviderProps) {
   const [state, dispatch] = useReducer(gameReducer, gameInitialState)
 
   const changeInitial = (action: PayloadProp) =>
     dispatch({
-      type: ACTIONS_TYPES_GAME.CHANGE_INITIAL,
+      type: STATES_GAME.INITIAL,
       payload: action
     })
   const changePlaying = (action: PayloadProp) =>
     dispatch({
-      type: ACTIONS_TYPES_GAME.CHANGE_PLAYING,
+      type: STATES_GAME.PLAYING,
       payload: action
     })
   const changeStopped = (action: PayloadProp) =>
     dispatch({
-      type: ACTIONS_TYPES_GAME.CHANGE_STOPPED,
+      type: STATES_GAME.STOPPED,
       payload: action
     })
   const changeCounting = (action: PayloadProp) =>
     dispatch({
-      type: ACTIONS_TYPES_GAME.CHANGE_COUNTING,
+      type: STATES_GAME.COUNTING,
       payload: action
     })
   const changeFinished = (action: PayloadProp) =>
     dispatch({
-      type: ACTIONS_TYPES_GAME.CHANGE_FINISHED,
+      type: STATES_GAME.FINISHED,
       payload: action
     })
 

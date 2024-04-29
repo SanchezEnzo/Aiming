@@ -1,5 +1,5 @@
 import { motion, spring } from 'framer-motion'
-import { useLanguages } from '../../hooks/useLanguages'
+import { useLanguages } from '../../hooks/useLanguage'
 
 export function Language() {
   const { language, handleLanguages } = useLanguages()

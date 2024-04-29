@@ -1,5 +1,5 @@
 import { useConfirmClear } from '../../hooks/useConfirmClear'
-import { useLanguages } from '../../hooks/useLanguages'
+import { useLanguages } from '../../hooks/useLanguage'
 import { useLeaderBoard } from '../../hooks/useLeaderBoard'
 
 export function CardConfirm() {

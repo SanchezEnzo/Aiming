@@ -1,5 +1,5 @@
 import { useCountDown } from '../../hooks/useCountDown'
-import { useLanguages } from '../../hooks/useLanguages'
+import { useLanguages } from '../../hooks/useLanguage'
 
 export function CountDown() {
   const countDown = useCountDown()

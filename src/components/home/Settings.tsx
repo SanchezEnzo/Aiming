@@ -35,7 +35,7 @@ export function Settings() {
           {language === 'English' ? 'Difficulty' : 'Dificultad'}
         </label>
         <select
-          onChange={handleChangeSettings}
+          onChange={() => handleChangeSettings}
           id={difficultyId}
           className='animation h-[35px] tracking-[0.5px] rounded-md w-[200px] text-center '
           value={settings.difficulty}

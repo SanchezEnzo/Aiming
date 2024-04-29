@@ -1,8 +1,10 @@
 import { DIFFICULTIES } from '../../constants/difficulties'
 import { LeaderBoardType } from '../../contexts/leaderBoard'
+import { useDifficulties } from '../../hooks/useDifficulties'
 import { useLeaderBoard } from '../../hooks/useLeaderBoard'
 
 export function Table() {
+  const { difficulties } = useDifficulties()
   const { leaderBoardEasy, leaderBoardNormal, leaderBoardHard } =
     useLeaderBoard()
   const sortedLeaderBoardEasy = leaderBoardEasy
@@ -39,7 +41,7 @@ export function Table() {
         </tr>
       </thead>
       <tbody>
-        {difficulties === DIFFICULTIES.EASY &&
+        {difficulties === DIFFICULTIES.easy &&
           sortedLeaderBoardEasy.map((player: LeaderBoardType, num: number) => (
             <tr className='flex justify-around mt-[0.5vh]' key={player.id}>
               <td className='text-center block w-[270px]'>{num + 1}.</td>
@@ -49,7 +51,7 @@ export function Table() {
               <td className='text-center block w-[270px]'>{player.score}</td>
             </tr>
           ))}
-        {difficulties === DIFFICULTIES.NORMAL &&
+        {difficulties === DIFFICULTIES.normal &&
           sortedLeaderBoardNormal.map(
             (player: LeaderBoardType, num: number) => (
               <tr className='flex justify-around mt-[0.5vh]' key={player.id}>
@@ -61,7 +63,7 @@ export function Table() {
               </tr>
             )
           )}
-        {difficulties === DIFFICULTIES.HARD &&
+        {difficulties === DIFFICULTIES.hard &&
           sortedLeaderBoardHard.map((player: LeaderBoardType, num: number) => (
             <tr className='flex justify-around mt-[0.5vh]' key={player.id}>
               <td className='text-center block w-[270px]'>{num + 1}.</td>

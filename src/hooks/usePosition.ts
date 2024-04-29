@@ -20,15 +20,15 @@ export function usePosition() {
 
   useEffect(() => {
     switch (settings.difficulty) {
-      case DIFFICULTIES.EASY: {
+      case DIFFICULTIES.easy: {
         setTimeToChangePosition(1350)
         break
       }
-      case DIFFICULTIES.NORMAL: {
+      case DIFFICULTIES.normal: {
         setTimeToChangePosition(1000)
         break
       }
-      case DIFFICULTIES.HARD: {
+      case DIFFICULTIES.hard: {
         setTimeToChangePosition(650)
         break
       }

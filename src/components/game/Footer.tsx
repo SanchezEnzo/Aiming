@@ -9,31 +9,25 @@ export function Footer() {
 
   return (
     <footer>
-      {state.status === STATES_GAME.INITIAL && (
+      {state === STATES_GAME.INITIAL && (
         <button
-          onClick={() =>
-            changePlaying({ payload: STATES_GAME.PLAYING } as PayloadProp)
-          }
+          onClick={() => changePlaying({ payload: STATES_GAME.PLAYING })}
           className='bg-transparent border-none cursor-pointer text-[1.5rem] mb-[2vh]  tracking-[2px] font-bold z-20 hover:text-white'
         >
           Start
         </button>
       )}
-      {state.status === STATES_GAME.PLAYING && (
+      {state === STATES_GAME.PLAYING && (
         <button
-          onClick={() =>
-            changePlaying({ payload: STATES_GAME.STOPPED } as PayloadProp)
-          }
+          onClick={() => changePlaying({ payload: STATES_GAME.STOPPED })}
           className='bg-transparent border-none cursor-pointer text-[1.5rem] mb-[2vh]  tracking-[2px] font-bold z-20 hover:text-white'
         >
           Stop
         </button>
       )}
-      {state.status === STATES_GAME.STOPPED && (
+      {state === STATES_GAME.STOPPED && (
         <button
-          onClick={() =>
-            changePlaying({ payload: STATES_GAME.INITIAL } as PayloadProp)
-          }
+          onClick={() => changePlaying({ payload: STATES_GAME.INITIAL })}
           className='bg-transparent border-none cursor-pointer text-[1.5rem] mb-[2vh]  tracking-[2px] font-bold z-20 hover:text-white'
         >
           Restart

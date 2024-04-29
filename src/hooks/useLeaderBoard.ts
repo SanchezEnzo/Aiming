@@ -17,44 +17,44 @@ export function useLeaderBoard() {
   } = useContext(LeaderBoardContext)
   const { settings } = useSettings()
   const { score } = useScore()
-  const { state, setState } = useGame()
+  const { state, changeStopped } = useGame()
 
   const updateLeaderBoard = () => {
-    if (settings.difficulty === DIFFICULTIES.EASY) {
+    if (settings.difficulty === DIFFICULTIES.easy) {
       const newLeaderBoard = [
         ...leaderBoardEasy,
         { name: settings.name, score: score, id: leaderBoardEasy.length }
       ]
       setLeaderBoard({ ...leaderBoard, leaderBoardEasy: newLeaderBoard })
       window.localStorage.setItem(
-        DIFFICULTIES.EASY,
+        DIFFICULTIES.easy,
         JSON.stringify(newLeaderBoard)
       )
     }
-    if (settings.difficulty === DIFFICULTIES.NORMAL) {
+    if (settings.difficulty === DIFFICULTIES.normal) {
       const newLeaderBoard = [
         ...leaderBoardNormal,
         { name: settings.name, score: score, id: leaderBoardNormal.length }
       ]
       setLeaderBoard({ ...leaderBoard, leaderBoardNormal: newLeaderBoard })
       window.localStorage.setItem(
-        DIFFICULTIES.NORMAL,
+        DIFFICULTIES.normal,
         JSON.stringify(newLeaderBoard)
       )
     }
-    if (settings.difficulty === DIFFICULTIES.HARD) {
+    if (settings.difficulty === DIFFICULTIES.hard) {
       const newLeaderBoard = [
         ...leaderBoardHard,
         { name: settings.name, score: score, id: leaderBoardHard.length }
       ]
       setLeaderBoard({ ...leaderBoard, leaderBoardHard: newLeaderBoard })
       window.localStorage.setItem(
-        DIFFICULTIES.HARD,
+        DIFFICULTIES.hard,
         JSON.stringify(newLeaderBoard)
       )
     }
     if (state === STATES_GAME.FINISHED) {
-      setState(STATES_GAME.STOPPED)
+      changeStopped({ payload: STATES_GAME.STOPPED })
     }
   }
 

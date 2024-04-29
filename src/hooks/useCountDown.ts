@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 export function useCountDown() {
   const [countDown, setCountDown] = useState(3)
-  const timerId = useRef()
+  const timerId = useRef<number>()
 
   useEffect(() => {
     timerId.current = setInterval(() => {
