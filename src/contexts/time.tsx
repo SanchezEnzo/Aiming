@@ -8,10 +8,12 @@ interface TimeContextProps {
 
 const initialValueTimeContext = {
   time: 0,
-  setTime: (newNumber: number) => {}
+  setTime: () => {}
 }
 
-export const TimeContext = createContext(initialValueTimeContext)
+export const TimeContext = createContext<TimeContextProps>(
+  initialValueTimeContext
+)
 
 export function TimeProvider({ children }: ProviderProps) {
   const [time, setTime] = useState<number>(0)

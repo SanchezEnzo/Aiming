@@ -18,7 +18,7 @@ export const ConfirmClearContext = createContext<ConfirmClearContextType>(
 )
 
 export function ConfirmClearProvider({ children }: ProviderProps) {
-  const [confirmClear, setConfirmClear] = useState(false)
+  const [confirmClear, setConfirmClear] = useState<boolean>(false)
 
   function handleConfirmClear() {
     setConfirmClear(!confirmClear)

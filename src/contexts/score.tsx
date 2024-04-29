@@ -1,13 +1,31 @@
-import { ReactNode, createContext, useState } from 'react'
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useState
+} from 'react'
 
-export const ScoreContext = createContext<any>({})
+interface ScoreContextType {
+  score: number
+  setScore: Dispatch<SetStateAction<number>>
+}
+
+const initialScoreContextType = {
+  score: 0,
+  setScore: () => {}
+}
+
+export const ScoreContext = createContext<ScoreContextType>(
+  initialScoreContextType
+)
 
 interface ScoreProviderProps {
   children: ReactNode
 }
 
 export function ScoreProvider({ children }: ScoreProviderProps) {
-  const [score, setScore] = useState(0)
+  const [score, setScore] = useState<number>(0)
   return (
     <ScoreContext.Provider
       value={{
