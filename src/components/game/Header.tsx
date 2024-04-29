@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
-import { CrownIcon, ReturnIcon } from '../icons/BallIIcon'
 import { useTime } from '../../hooks/useTime'
 import { useScore } from '../../hooks/useScore'
+import { ReturnIcon } from '../icons/ReturnIcon'
+import { CrownIcon } from '../icons/CrownIcon'
 
 export function Header() {
   const { timeToShow } = useTime()
