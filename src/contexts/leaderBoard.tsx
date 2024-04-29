@@ -1,5 +1,6 @@
-import { ReactNode, createContext, useState } from 'react'
+import { Dispatch, SetStateAction, createContext, useState } from 'react'
 import { DIFFICULTIES } from '../constants/difficulties'
+import { ProviderProps } from '../@types/global'
 
 export interface LeaderBoardType {
   name: string
@@ -13,20 +14,40 @@ interface LeaderBoardStateType {
   leaderBoardHard: LeaderBoardType[]
 }
 
-interface LeaderBoardProviderProps {
-  children: ReactNode
+interface LeaderBoardContextType {
+  leaderBoard: LeaderBoardStateType
+  leaderBoardEasy: LeaderBoardType[]
+  leaderBoardNormal: LeaderBoardType[]
+  leaderBoardHard: LeaderBoardType[]
+  setLeaderBoard: Dispatch<SetStateAction<LeaderBoardStateType>>
+  clearLeaderBoard: () => void
 }
 
-export const LeaderBoardContext = createContext<any>({})
+const initialLeaderBoardContextValue: LeaderBoardContextType = {
+  leaderBoard: {
+    leaderBoardEasy: [],
+    leaderBoardNormal: [],
+    leaderBoardHard: []
+  },
+  leaderBoardEasy: [],
+  leaderBoardNormal: [],
+  leaderBoardHard: [],
+  setLeaderBoard: () => {},
+  clearLeaderBoard: () => {}
+}
 
-export function LeaderBoardProvider({ children }: LeaderBoardProviderProps) {
+export const LeaderBoardContext = createContext<LeaderBoardContextType>(
+  initialLeaderBoardContextValue
+)
+
+export function LeaderBoardProvider({ children }: ProviderProps) {
   const [leaderBoard, setLeaderBoard] = useState<LeaderBoardStateType>({
     leaderBoardEasy:
-      JSON.parse(window.localStorage.getItem(DIFFICULTIES.EASY)) || [],
+      JSON.parse(window.localStorage.getItem(DIFFICULTIES.easy) || '') || [],
     leaderBoardNormal:
-      JSON.parse(window.localStorage.getItem(DIFFICULTIES.NORMAL)) || [],
+      JSON.parse(window.localStorage.getItem(DIFFICULTIES.normal) || '') || [],
     leaderBoardHard:
-      JSON.parse(window.localStorage.getItem(DIFFICULTIES.HARD)) || []
+      JSON.parse(window.localStorage.getItem(DIFFICULTIES.hard) || '') || []
   })
 
   const clearLeaderBoard = () => {
