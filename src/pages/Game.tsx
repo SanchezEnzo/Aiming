@@ -1,3 +1,4 @@
+import { Transition } from '../components/animation/Transition'
 import { Footer } from '../components/game/Footer'
 import { Header } from '../components/game/Header'
 import { Playground } from '../components/game/Playground'
@@ -8,6 +9,7 @@ export default function Game() {
       <Header />
       <Playground />
       <Footer />
+      <Transition />
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import { Transition } from '../components/animation/Transition'
 import { Footer } from '../components/leaderboard/Footer'
 import { Header } from '../components/leaderboard/Header'
 import { Table } from '../components/leaderboard/Table'
@@ -8,6 +9,7 @@ export default function Leaderboard() {
       <Header />
       <Table />
       <Footer />
+      <Transition />
     </div>
   )
 }

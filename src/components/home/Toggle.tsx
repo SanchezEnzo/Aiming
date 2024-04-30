@@ -3,7 +3,6 @@ import { useLanguages } from '../../hooks/useLanguage'
 
 export function Toggle({ left, right }: { left: string; right: string }) {
   const { language, handleLanguages } = useLanguages()
-  console.log(language)
 
   return (
     <div className='animation flex items-center justify-between text-white '>
