@@ -1,15 +1,12 @@
 import { useId } from 'react'
-// import { SettingsIcon } from './Icons'
 import { useSettings } from '../../hooks/useSettings'
 import { DIFFICULTIES } from '../../constants/difficulties'
 import { useLanguages } from '../../hooks/useLanguage'
 
 export function Settings() {
-  // const settingsId = useId()
-
   const nameId = useId()
   const difficultyId = useId()
-  const { settings, handleChangeSettings, handleChangeName } = useSettings()
+  const { settings, handleChangeDifficulty, handleChangeName } = useSettings()
   const { language } = useLanguages()
 
   return (
@@ -22,7 +19,7 @@ export function Settings() {
           onChange={handleChangeName}
           type='text'
           id={nameId}
-          className='animation w-[200px] tracking-[0.5px] pl-[5px] h-[35px] block rounded-md text-center focus-visible:outline-none'
+          className='animation w-[200px] tracking-[0.5px] pl-[5px] text-black h-[35px] block rounded-md text-center focus-visible:outline-none'
           value={settings.name}
         />
       </div>
@@ -35,17 +32,17 @@ export function Settings() {
           {language === 'English' ? 'Difficulty' : 'Dificultad'}
         </label>
         <select
-          onChange={() => handleChangeSettings}
+          onChange={handleChangeDifficulty}
           id={difficultyId}
-          className='animation h-[35px] tracking-[0.5px] rounded-md w-[200px] text-center '
+          className='animation text-black h-[35px] tracking-[0.5px] rounded-md w-[200px] text-center '
           value={settings.difficulty}
         >
-          <option value={DIFFICULTIES.easy}>
+          <option value={DIFFICULTIES.Easy}>
             {language === 'English' ? 'Easy' : 'Fácil'}
           </option>
-          <option value={DIFFICULTIES.normal}>{DIFFICULTIES.normal}</option>
-          <option value={DIFFICULTIES.hard}>
-            {language === 'English' ? 'Hard' : 'Dificil'}
+          <option value={DIFFICULTIES.Normal}>{DIFFICULTIES.Normal}</option>
+          <option value={DIFFICULTIES.Hard}>
+            {language === 'English' ? 'Hard' : 'Difícil'}
           </option>
         </select>
       </div>

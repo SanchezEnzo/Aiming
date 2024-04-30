@@ -42,12 +42,15 @@ export const LeaderBoardContext = createContext<LeaderBoardContextType>(
 
 export function LeaderBoardProvider({ children }: ProviderProps) {
   const [leaderBoard, setLeaderBoard] = useState<LeaderBoardStateType>({
-    leaderBoardEasy:
-      JSON.parse(window.localStorage.getItem(DIFFICULTIES.easy) || '') || [],
-    leaderBoardNormal:
-      JSON.parse(window.localStorage.getItem(DIFFICULTIES.normal) || '') || [],
-    leaderBoardHard:
-      JSON.parse(window.localStorage.getItem(DIFFICULTIES.hard) || '') || []
+    leaderBoardEasy: JSON.parse(
+      window.localStorage.getItem(DIFFICULTIES.Easy) || '[]'
+    ),
+    leaderBoardNormal: JSON.parse(
+      window.localStorage.getItem(DIFFICULTIES.Normal) || '[]'
+    ),
+    leaderBoardHard: JSON.parse(
+      window.localStorage.getItem(DIFFICULTIES.Hard) || '[]'
+    )
   })
 
   const clearLeaderBoard = () => {

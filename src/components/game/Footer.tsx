@@ -1,36 +1,45 @@
 import { useGame } from '../../hooks/useGame'
 import { STATES_GAME } from '../../constants/statesGames'
-import { PayloadProp } from '../../contexts/game'
+import { useLanguages } from '../../hooks/useLanguage'
 
 export function Footer() {
-  const { state, changePlaying } = useGame()
+  const { state, changeCounting, changePlaying, changeStopped, changeInitial } =
+    useGame()
+  const { language } = useLanguages()
 
   console.log(state)
 
   return (
-    <footer>
+    <footer className='mb-2'>
       {state === STATES_GAME.INITIAL && (
-        <button
-          onClick={() => changePlaying({ payload: STATES_GAME.PLAYING })}
-          className='bg-transparent border-none cursor-pointer text-[1.5rem] mb-[2vh]  tracking-[2px] font-bold z-20 hover:text-white'
-        >
-          Start
-        </button>
+        <>
+          <button
+            className='bg-transparent border-none cursor-pointer text-[1.5rem] text-[#ebebeb] tracking-[2px] font-bold  z-20 hover:text-white'
+            onClick={() => {
+              changeCounting({ payload: STATES_GAME.COUNTING })
+              setTimeout(() => {
+                changePlaying({ payload: STATES_GAME.PLAYING })
+              }, 2000)
+            }}
+          >
+            {language === 'English' ? 'Start' : 'Iniciar'}
+          </button>
+        </>
       )}
       {state === STATES_GAME.PLAYING && (
         <button
-          onClick={() => changePlaying({ payload: STATES_GAME.STOPPED })}
-          className='bg-transparent border-none cursor-pointer text-[1.5rem] mb-[2vh]  tracking-[2px] font-bold z-20 hover:text-white'
+          className='bg-transparent border-none cursor-pointer text-[1.5rem] text-[#ebebeb] tracking-[2px] font-bold  z-20 hover:text-white'
+          onClick={() => changeStopped({ payload: STATES_GAME.STOPPED })}
         >
-          Stop
+          {language === 'English' ? 'Stop' : 'Pausa'}
         </button>
       )}
-      {state === STATES_GAME.STOPPED && (
+      {(state === STATES_GAME.STOPPED || state === STATES_GAME.FINISHED) && (
         <button
-          onClick={() => changePlaying({ payload: STATES_GAME.INITIAL })}
-          className='bg-transparent border-none cursor-pointer text-[1.5rem] mb-[2vh]  tracking-[2px] font-bold z-20 hover:text-white'
+          className='bg-transparent border-none cursor-pointer text-[1.5rem] text-[#ebebeb] tracking-[2px] font-bold  z-20 hover:text-white'
+          onClick={() => changeInitial({ payload: STATES_GAME.INITIAL })}
         >
-          Restart
+          {language === 'English' ? 'Reset' : 'Reiniciar'}
         </button>
       )}
     </footer>
