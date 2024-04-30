@@ -2,38 +2,29 @@ import { createContext } from 'react'
 import { useSettingsReducer } from '../hooks/useSettingsReducer'
 import { ProviderProps } from '../@types/global'
 
-export interface Settings {
-  name: string
-  difficulty: keyof typeof DIFFICULTIES
-}
-
-enum DIFFICULTIES {
-  easy = 'easy',
-  normal = 'normal',
-  hard = 'hard'
-}
-
-interface SettingsContextProps {
-  settings: Settings
+interface SettingsContextType {
+  settings: {
+    name: string
+    difficulty: string
+  }
   handleChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void
-  handleChangeSettings: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleChangeDifficulty: (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
-const InitialValueSettingsContext: SettingsContextProps = {
+const initialSettings: SettingsContextType = {
   settings: {
     name: '',
-    difficulty: DIFFICULTIES.easy
+    difficulty: 'Easy'
   },
   handleChangeName: () => {},
-  handleChangeSettings: () => {}
+  handleChangeDifficulty: () => {}
 }
 
-export const SettingsContext = createContext<SettingsContextProps>(
-  InitialValueSettingsContext
-)
+export const SettingsContext =
+  createContext<SettingsContextType>(initialSettings)
 
 export function SettingsProvider({ children }: ProviderProps) {
-  const { settings, handleChangeName, handleChangeSettings } =
+  const { settings, handleChangeName, handleChangeDifficulty } =
     useSettingsReducer()
 
   return (
@@ -41,7 +32,7 @@ export function SettingsProvider({ children }: ProviderProps) {
       value={{
         settings,
         handleChangeName,
-        handleChangeSettings
+        handleChangeDifficulty
       }}
     >
       {children}

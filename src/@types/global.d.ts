@@ -22,4 +22,17 @@ export type ProviderProps = {
   children: React.ReactNode
 }
 
-export type Difficulties = 'easy' | 'normal' | 'hard'
+export type Difficulties = 'Easy' | 'Normal' | 'Hard'
+
+export interface DifficultiesTypes {
+  Easy: Difficulties
+  Normal: Difficulties
+  Hard: Difficulties
+}
+
+type ActionSettings = 'CHANGE_DIFFICULTY' | 'CHANGE_NAME'
+
+export interface ActionTypesSettings {
+  CHANGE_DIFFICULTY: ActionSettings
+  CHANGE_NAME: ActionSettings
+}

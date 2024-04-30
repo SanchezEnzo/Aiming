@@ -1,15 +1,13 @@
-import { Dispatch, SetStateAction, createContext, useState } from 'react'
+import { createContext, useState } from 'react'
 import { ProviderProps } from '../@types/global'
 
 interface ConfirmClearContextType {
   confirmClear: boolean
-  setConfirmClear: Dispatch<SetStateAction<boolean>>
   handleConfirmClear: () => void
 }
 
 const initialConfirmClearContextTypeValue = {
   confirmClear: false,
-  setConfirmClear: () => {},
   handleConfirmClear: () => {}
 }
 
@@ -25,9 +23,7 @@ export function ConfirmClearProvider({ children }: ProviderProps) {
   }
 
   return (
-    <ConfirmClearContext.Provider
-      value={{ confirmClear, setConfirmClear, handleConfirmClear }}
-    >
+    <ConfirmClearContext.Provider value={{ confirmClear, handleConfirmClear }}>
       {children}
     </ConfirmClearContext.Provider>
   )

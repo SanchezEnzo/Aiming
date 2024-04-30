@@ -18,7 +18,7 @@ export const LanguageContext = createContext<LanguageContextType>(
 )
 
 export function LanguageProvider({ children }: ProviderProps) {
-  const [language, setLanguage] = useState<Language>('English')
+  const [language, setLanguage] = useState<Language>('Spanish')
 
   const handleLanguages = () => {
     const newLanguage: Language = language === 'English' ? 'Spanish' : 'English'

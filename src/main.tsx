@@ -6,17 +6,26 @@ import { GameProvider } from './contexts/game.tsx'
 import { LeaderBoardProvider } from './contexts/leaderBoard.tsx'
 import { ScoreProvider } from './contexts/score.tsx'
 import { TimeProvider } from './contexts/time.tsx'
+import { SettingsProvider } from './contexts/settings.tsx'
+import { LanguageProvider } from './contexts/language.tsx'
+import { ConfirmClearProvider } from './contexts/confirm.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <GameProvider>
-    <LeaderBoardProvider>
-      <ScoreProvider>
-        <TimeProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </TimeProvider>
-      </ScoreProvider>
-    </LeaderBoardProvider>
+    <SettingsProvider>
+      <LanguageProvider>
+        <LeaderBoardProvider>
+          <ScoreProvider>
+            <TimeProvider>
+              <ConfirmClearProvider>
+                <BrowserRouter>
+                  <App />
+                </BrowserRouter>
+              </ConfirmClearProvider>
+            </TimeProvider>
+          </ScoreProvider>
+        </LeaderBoardProvider>
+      </LanguageProvider>
+    </SettingsProvider>
   </GameProvider>
 )

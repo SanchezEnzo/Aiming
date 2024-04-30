@@ -25,3 +25,6 @@ export default function App() {
 }
 
 // Todo: to change contexts param logic
+// Todo: extraer types de componentes y contextos
+// Todo: crear mas reducers donde se pueda
+// Todo: No mostrar carta de confirmacion de borrar leaderboard si esta vacio
