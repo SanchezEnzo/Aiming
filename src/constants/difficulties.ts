@@ -1,5 +1,7 @@
-export const DIFFICULTIES = {
-  easy: 'easy',
-  normal: 'normal',
-  hard: 'hard'
+import { DifficultiesTypes } from '../@types/global'
+
+export const DIFFICULTIES: DifficultiesTypes = {
+  Easy: 'Easy',
+  Normal: 'Normal',
+  Hard: 'Hard'
 }

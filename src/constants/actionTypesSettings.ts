@@ -1,4 +1,6 @@
-export const ACTION_TYPES_SETTINGS = {
-  CHANGE_SETTINGS: 'changeSettings',
-  CHANGE_NAME: 'changeName'
+import { ActionTypesSettings } from '../@types/global'
+
+export const ACTION_TYPES_SETTINGS: ActionTypesSettings = {
+  CHANGE_DIFFICULTY: 'CHANGE_DIFFICULTY',
+  CHANGE_NAME: 'CHANGE_NAME'
 }

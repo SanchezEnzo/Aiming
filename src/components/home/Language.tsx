@@ -3,7 +3,7 @@ import { useLanguages } from '../../hooks/useLanguage'
 
 export function Language() {
   const { language, handleLanguages } = useLanguages()
-
+  console.log(language)
   return (
     <div className='animation flex items-center justify-between text-white '>
       <span>EN</span>
