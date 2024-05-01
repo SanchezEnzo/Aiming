@@ -6,7 +6,7 @@ interface Settings {
   difficulty: keyof typeof DIFFICULTIES
 }
 
-type ActionTypesSettings =
+type ActionSettingsTypes =
   | { type: 'CHANGE_DIFFICULTY'; payload: keyof typeof DIFFICULTIES }
   | { type: 'CHANGE_NAME'; payload: string }
 
@@ -17,7 +17,7 @@ export const initialSettings = {
 
 export const settingsReducer = (
   state: Settings,
-  action: ActionTypesSettings
+  action: ActionSettingsTypes
 ): Settings => {
   const { type: actionType, payload: actionPayload } = action
   switch (actionType) {

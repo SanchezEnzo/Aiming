@@ -1,27 +1,10 @@
-import { Dispatch, SetStateAction, createContext, useState } from 'react'
+import { createContext, useState } from 'react'
 import { DIFFICULTIES } from '../constants/difficulties'
 import { ProviderProps } from '../@types/global'
-
-export interface LeaderBoardType {
-  name: string
-  score: number
-  id: number
-}
-
-interface LeaderBoardStateType {
-  leaderBoardEasy: LeaderBoardType[]
-  leaderBoardNormal: LeaderBoardType[]
-  leaderBoardHard: LeaderBoardType[]
-}
-
-interface LeaderBoardContextType {
-  leaderBoard: LeaderBoardStateType
-  leaderBoardEasy: LeaderBoardType[]
-  leaderBoardNormal: LeaderBoardType[]
-  leaderBoardHard: LeaderBoardType[]
-  setLeaderBoard: Dispatch<SetStateAction<LeaderBoardStateType>>
-  clearLeaderBoard: () => void
-}
+import {
+  LeaderBoardContextType,
+  LeaderBoardStateType
+} from '../@types/leaderBoard'
 
 const initialLeaderBoardContextValue: LeaderBoardContextType = {
   leaderBoard: {

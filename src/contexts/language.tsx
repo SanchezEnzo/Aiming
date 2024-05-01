@@ -1,12 +1,6 @@
 import { useState, createContext } from 'react'
 import { ProviderProps } from '../@types/global'
-
-type Language = 'English' | 'Spanish'
-
-interface LanguageContextType {
-  language: Language
-  handleLanguages: () => void
-}
+import { Language, LanguageContextType } from '../@types/language'
 
 const initialLanguageContextValue: LanguageContextType = {
   language: 'Spanish',

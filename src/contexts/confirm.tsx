@@ -1,10 +1,6 @@
 import { createContext, useState } from 'react'
 import { ProviderProps } from '../@types/global'
-
-interface ConfirmClearContextType {
-  confirmClear: boolean
-  handleConfirmClear: () => void
-}
+import { ConfirmClearContextType } from '../@types/confirm'
 
 const initialConfirmClearContextTypeValue = {
   confirmClear: false,

@@ -1,15 +1,5 @@
-import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  createContext,
-  useState
-} from 'react'
-
-interface ScoreContextType {
-  score: number
-  setScore: Dispatch<SetStateAction<number>>
-}
+import { ReactNode, createContext, useState } from 'react'
+import { ScoreContextType } from '../@types/score'
 
 const initialScoreContextType = {
   score: 0,
