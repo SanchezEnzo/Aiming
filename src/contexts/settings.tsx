@@ -1,15 +1,7 @@
 import { createContext } from 'react'
 import { useSettingsReducer } from '../hooks/useSettingsReducer'
 import { ProviderProps } from '../@types/global'
-
-interface SettingsContextType {
-  settings: {
-    name: string
-    difficulty: string
-  }
-  handleChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void
-  handleChangeDifficulty: (e: React.ChangeEvent<HTMLSelectElement>) => void
-}
+import { SettingsContextType } from '../@types/settings'
 
 const initialSettings: SettingsContextType = {
   settings: {

@@ -1,10 +1,6 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react'
 import { ProviderProps } from '../@types/global'
-
-interface TimeContextProps {
-  time: number
-  setTime: Dispatch<SetStateAction<number>>
-}
+import { TimeContextProps } from '../@types/time'
 
 const initialValueTimeContext = {
   time: 0,
