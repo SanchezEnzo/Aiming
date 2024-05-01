@@ -39,3 +39,4 @@ export default function App() {
 // TODO - Cuando vayamos al LeaderBoard, que nos aparezca la tabla seleccionada con la dificultad que estamos jugando
 // TODO - Buscar alternativas a los context de time y score, ya que se debe usar para cosas que cambien muy pocas veces
 // TODO - Que no me deje borrar el leaderboard dos veces seguidas. O que no deje borrar si no hay nada para borrar
+// TODO - Agregar transicion a los textos de la pantalla de bienvenida cuando cambiamos de idioma
