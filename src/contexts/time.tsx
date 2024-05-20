@@ -1,4 +1,4 @@
-import { createContext, useState, Dispatch, SetStateAction } from 'react'
+import { createContext, useState } from 'react'
 import { ProviderProps } from '../@types/global'
 import { TimeContextProps } from '../@types/time'
 

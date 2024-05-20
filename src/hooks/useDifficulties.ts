@@ -7,7 +7,7 @@ export function useDifficulties() {
     DIFFICULTIES.Easy
   )
 
-  const handleDifficulty: MouseEventHandler<HTMLLIElement> = e => {
+  const handleDifficulty = (e: React.MouseEventHandler<HTMLLIElement>) => {
     setDifficulties(e.target.title)
   }
   return { difficulties, handleDifficulty }
