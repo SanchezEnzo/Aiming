@@ -1,4 +1,4 @@
-import { useState, MouseEventHandler } from 'react'
+import { useState } from 'react'
 import { DIFFICULTIES } from '../constants/difficulties'
 import { Difficulties } from '../@types/global'
 
@@ -7,8 +7,8 @@ export function useDifficulties() {
     DIFFICULTIES.Easy
   )
 
-  const handleDifficulty = (e: React.MouseEventHandler<HTMLLIElement>) => {
-    setDifficulties(e.target.title)
+  const handleDifficulty = (e: React.MouseEvent<HTMLLIElement>) => {
+    setDifficulties(e.currentTarget.title as Difficulties)
   }
   return { difficulties, handleDifficulty }
 }
