@@ -1,9 +1,9 @@
-import { ActionsTypesGame } from '../@types/global'
+import { ActionsTypesGame } from '../@types/game'
 
 export const STATES_GAME: ActionsTypesGame = {
-  INITIAL: 'initial',
-  PLAYING: 'playing',
-  COUNTING: 'counting',
-  STOPPED: 'stopped',
-  FINISHED: 'finished'
+	INITIAL: 'initial',
+	PLAYING: 'playing',
+	COUNTING: 'counting',
+	STOPPED: 'stopped',
+	FINISHED: 'finished'
 }
