@@ -4,24 +4,24 @@ import Home from './pages/Home'
 import { useRoutes } from 'react-router-dom'
 
 export default function App() {
-  const routes = [
-    {
-      path: '/',
-      element: <Home />
-    },
-    {
-      path: '/game',
-      element: <Playground />
-    },
-    {
-      path: '/leaderboard',
-      element: <Leaderboard />
-    }
-  ]
+	const routes = [
+		{
+			path: '/',
+			element: <Home />
+		},
+		{
+			path: '/game',
+			element: <Playground />
+		},
+		{
+			path: '/leaderboard',
+			element: <Leaderboard />
+		}
+	]
 
-  const elements = useRoutes(routes)
+	const elements = useRoutes(routes)
 
-  return elements
+	return elements
 }
 
 // Todo: to change contexts param logic
@@ -39,3 +39,6 @@ export default function App() {
 // TODO - Buscar alternativas a los context de time y score, ya que se debe usar para cosas que cambien muy pocas veces
 // TODO - Que no me deje borrar el leaderboard dos veces seguidas. O que no deje borrar si no hay nada para borrar
 // TODO - Agregar transicion a los textos de la pantalla de bienvenida cuando cambiamos de idioma
+// TODO - Dar opciones de elegir la pelotita
+// TODO - Borrar consoles logs
+// TODO - Cambiar nombre y que coincida con la url

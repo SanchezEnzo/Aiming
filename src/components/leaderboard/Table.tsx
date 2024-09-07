@@ -2,18 +2,25 @@ import { DIFFICULTIES } from '../../constants/difficulties'
 import { useConfirmClear } from '../../hooks/useConfirmClear'
 import { useDifficulties } from '../../hooks/useDifficulties'
 import { useLanguages } from '../../hooks/useLanguage'
-import { TableVariables } from '../../utils/leaderboard'
+import { useLeaderBoard } from '../../hooks/useLeaderBoard'
 import { CardConfirm } from './CardConfirm'
 
 export function Table() {
 	const { difficulties, handleDifficulty } = useDifficulties()
 	const { language } = useLanguages()
 	const { confirmClear } = useConfirmClear()
-	const [
-		sortedLeaderBoardEasy,
-		sortedLeaderBoardHard,
-		sortedLeaderBoardNormal
-	] = TableVariables
+	const { leaderBoardEasy, leaderBoardNormal, leaderBoardHard } =
+		useLeaderBoard()
+
+	const sortedLeaderBoardEasy = leaderBoardEasy
+		.sort((a: { score: number }, b: { score: number }) => b.score - a.score)
+		.slice(0, 10)
+	const sortedLeaderBoardNormal = leaderBoardNormal
+		.sort((a: { score: number }, b: { score: number }) => b.score - a.score)
+		.slice(0, 10)
+	const sortedLeaderBoardHard = leaderBoardHard
+		.sort((a: { score: number }, b: { score: number }) => b.score - a.score)
+		.slice(0, 10)
 
 	return (
 		<>
