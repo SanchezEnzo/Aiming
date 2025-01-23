@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect } from 'react'
 import { useGame } from './useGame'
 import { useScore } from './useScore'
 import { useLeaderBoard } from './useLeaderBoard'

@@ -5,6 +5,7 @@ import { useSettings } from './useSettings'
 import { DIFFICULTIES } from '../constants/difficulties'
 import { STATES_GAME } from '../constants/statesGames'
 import { Position } from '../@types/global'
+import { MAX_SCORE } from '../constants/game'
 
 export function usePosition() {
 	const { state, changeFinished } = useGame()
@@ -57,7 +58,7 @@ export function usePosition() {
 	}, [state, settings])
 
 	const changePosition = () => {
-		if (score === 30) return changeFinished({ payload: STATES_GAME.FINISHED })
+		if (score === MAX_SCORE) return changeFinished({ payload: STATES_GAME.FINISHED })
 		if (changedValue || isFirstCount.current) {
 			setScore((prevCount: number) => prevCount + 1)
 			setChangedValue(false)
