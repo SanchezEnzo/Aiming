@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { useGame } from './useGame'
 import { useScore } from './useScore'
 import { useLeaderBoard } from './useLeaderBoard'
@@ -6,25 +6,19 @@ import { TimeContext } from '../contexts/time'
 import { STATES_GAME } from '../constants/statesGames'
 
 export function useTime() {
-  const { state, changeFinished } = useGame()
+  const { state } = useGame()
   const { setScore } = useScore()
   const { time, setTime } = useContext(TimeContext)
-  const { updateLeaderBoard } = useLeaderBoard()
+	const { updateLeaderBoard } = useLeaderBoard()
 
   useEffect(() => {
     if (state === STATES_GAME.PLAYING) {
       const intervalId = setInterval(() => {
-        setTime((prevTime: number) => prevTime + 1)
-      }, 100)
-
-      const finishInterval = setTimeout(() => {
-        clearInterval(intervalId)
-        changeFinished({ payload: STATES_GAME.FINISHED })
-      }, 30000)
+				setTime((prevTime: number) => prevTime + 1)
+			}, 100)
 
       return () => {
         clearInterval(intervalId)
-        clearTimeout(finishInterval)
       }
     }
 
