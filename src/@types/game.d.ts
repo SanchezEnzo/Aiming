@@ -1,3 +1,5 @@
+
+//Reducer types
 export type GameTypes =
   | 'initial'
   | 'playing'

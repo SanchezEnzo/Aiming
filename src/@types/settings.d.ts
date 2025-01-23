@@ -8,3 +8,13 @@ export interface SettingsContextType {
 }
 
 export type ActionSettings = 'CHANGE_DIFFICULTY' | 'CHANGE_NAME'
+
+// Reducer types
+export interface Settings {
+	name: string
+	difficulty: keyof typeof DIFFICULTIES
+}
+
+export type ActionSettingsTypes =
+	| { type: 'CHANGE_DIFFICULTY'; payload: keyof typeof DIFFICULTIES }
+	| { type: 'CHANGE_NAME'; payload: string }

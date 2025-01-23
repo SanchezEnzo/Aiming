@@ -1,14 +1,6 @@
 import { DIFFICULTIES } from '../constants/difficulties'
 import { ACTION_TYPES_SETTINGS } from '../constants/actionTypesSettings'
-
-interface Settings {
-	name: string
-	difficulty: keyof typeof DIFFICULTIES
-}
-
-type ActionSettingsTypes =
-	| { type: 'CHANGE_DIFFICULTY'; payload: keyof typeof DIFFICULTIES }
-	| { type: 'CHANGE_NAME'; payload: string }
+import { ActionSettingsTypes, Settings } from '../@types/settings'
 
 export const initialSettings = {
 	name: '',
