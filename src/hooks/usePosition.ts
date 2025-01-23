@@ -7,10 +7,10 @@ import { STATES_GAME } from '../constants/statesGames'
 import { Position } from '../@types/global'
 
 export function usePosition() {
-  const { state } = useGame()
+  const { state , changeFinished } = useGame()
   const { settings } = useSettings()
-  const { setScore } = useScore()
-  const [changeValue, setChangeValue] = useState(false)
+  const { score, setScore } = useScore()
+  const [changedValue, setChangedValue] = useState(false)
   const [timeToChangePosition, setTimeToChangePosition] = useState<number>(0)
   const [position, setPosition] = useState<Position>({
     positionX: Math.round(Math.random() * 100) + '%',
@@ -36,12 +36,12 @@ export function usePosition() {
 
     if (state === STATES_GAME.PLAYING) {
       const intervalPosition = setInterval(() => {
-        if (changeValue) return
+        if (changedValue) return
         setPosition({
           positionX: Math.round(Math.random() * 100) + '%',
           positionY: Math.round(Math.random() * 100) + '%'
         })
-        setChangeValue(true)
+        setChangedValue(true)
       }, timeToChangePosition)
 
       const finishInterval = setTimeout(() => {
@@ -55,17 +55,17 @@ export function usePosition() {
     }
 
     if (state === STATES_GAME.FINISHED || state === STATES_GAME.STOPPED) {
-      setChangeValue(false)
+      setChangedValue(false)
       isFirstCount.current = true
     }
   }, [state, settings])
 
-  const handleClick = () => {
-    if (changeValue || isFirstCount.current) {
+  const changePosition = () => {
+		if (changedValue || isFirstCount.current) {
       setScore((prevCount: number) => prevCount + 1)
-      setChangeValue(false)
+      setChangedValue(false)
       if (isFirstCount.current) isFirstCount.current = false
     }
   }
-  return { position, handleClick }
+  return { position, changePosition }
 }
