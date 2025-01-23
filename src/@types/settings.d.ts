@@ -1,3 +1,6 @@
+import { ACTION_TYPES_SETTINGS } from "../constants/actionTypesSettings"
+import { DIFFICULTIES } from "../constants/difficulties"
+
 export interface SettingsContextType {
   settings: {
     name: string
@@ -7,8 +10,6 @@ export interface SettingsContextType {
   handleChangeDifficulty: (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
-export type ActionSettings = 'CHANGE_DIFFICULTY' | 'CHANGE_NAME'
-
 // Reducer types
 export interface Settings {
 	name: string
@@ -16,5 +17,5 @@ export interface Settings {
 }
 
 export type ActionSettingsTypes =
-	| { type: 'CHANGE_DIFFICULTY'; payload: keyof typeof DIFFICULTIES }
-	| { type: 'CHANGE_NAME'; payload: string }
+	| { type: ACTION_TYPES_SETTINGS.CHANGE_DIFFICULTY; payload: keyof typeof DIFFICULTIES }
+	| { type: ACTION_TYPES_SETTINGS.CHANGE_NAME; payload: string }

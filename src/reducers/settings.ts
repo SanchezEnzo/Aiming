@@ -19,7 +19,7 @@ export const settingsReducer = (
 				difficulty: actionPayload as keyof typeof DIFFICULTIES
 			}
 		case ACTION_TYPES_SETTINGS.CHANGE_NAME:
-			return { ...state, name: actionPayload }
+			return { ...state, name: actionPayload}
 		default:
 			return state
 	}

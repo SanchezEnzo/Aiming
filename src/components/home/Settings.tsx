@@ -16,7 +16,7 @@ export function Settings() {
           {language === 'English' ? 'Insert name' : 'Ingresar nombre'}
         </label>
         <input
-          onChange={handleChangeName}
+          onChange={e =>  handleChangeName(e)}
           type='text'
           id={nameId}
           className='animation w-[200px] tracking-[0.5px] pl-[5px] text-black h-[35px] block rounded-md text-center focus-visible:outline-none'
@@ -32,7 +32,7 @@ export function Settings() {
           {language === 'English' ? 'Difficulty' : 'Dificultad'}
         </label>
         <select
-          onChange={handleChangeDifficulty}
+          onChange={e => handleChangeDifficulty(e)}
           id={difficultyId}
           className='animation text-black h-[35px] tracking-[0.5px] rounded-md w-[200px] text-center '
           value={settings.difficulty}
